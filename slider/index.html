@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Add description here">
+    <meta name="author" content="Your Name">
+    <title>Slider</title>
+    <style>
+        .body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+            font-size: 2rem;
+        }
+        .cont {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #3b3f47;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #61dafb;
+            border-radius: 6px;
+            margin: 0 0.75rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .g{
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div class="cont">
+            <div class="tabs">
+                <div class="tab g">1</div>
+                <div class="tab">2</div>
+                <div class="tab">3</div>
+                <div class="tab">4</div>
+                <div class="tab">5</div>
+            </div>
+            <div class="buttons">
+                <button class="btn" id="prev">Prev</button>
+                <button class="btn" id="next">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tabs = document.body.querySelectorAll(".tab")
+        const next = document.getElementById("next")
+        const prev = document.getElementById("prev")
+
+        for(tab of tabs){
+            tab.addEventListener("click",(event)=>{
+                for(child of tabs){
+                    child.classList.remove("g")
+                }
+                for(child of tabs){
+                    child.classList.add("g")
+                    if(child==event.target) break
+                }
+            })
+        }
+
+        next.addEventListener("click",()=>{
+            prev.disabled=false
+            for(let i=0;i<tabs.length;i++){
+                if(!tabs[i].classList.contains("g")){
+                    tabs[i].classList.add("g")
+                    if(i===tabs.length-1) next.disabled=true
+                    break
+                }
+            }
+        })
+
+        prev.addEventListener("click",()=>{
+            next.disabled=false
+            for(let i=tabs.length-1;i>=0;i--){
+                if(tabs[i].classList.contains("g")){
+                    tabs[i].classList.remove("g")
+                    if(i===0) prev.disabled=true
+                    break
+                }
+            }
+        })
+    </script>
+</body>
+</html>

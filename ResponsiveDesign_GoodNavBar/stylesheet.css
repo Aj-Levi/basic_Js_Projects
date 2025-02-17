@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Lacquer&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+}
+.navigation{
+    position: sticky;
+    top:0;
+    z-index: 1;
+}
+.nav{
+    list-style: none;
+    display: flex;
+    background-color: black;
+    color: white;
+    column-gap: 0.3rem;
+}
+.item{
+    padding: 0.6rem 0;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+.item a{
+    text-decoration: none;
+    color: white;
+}
+.logo{
+    flex-grow: 2;
+    justify-content: flex-end;
+}
+.Name{
+    flex-grow: 8;
+    justify-content: flex-start;
+    font-size: 1.2em;
+    font-family: "Poppins", sans-serif;
+}
+.search{
+    flex-grow: 1;
+}
+.item1,.item2,.item3,.item4{
+    justify-content: center;
+    font-family: "Baloo Bhai 2",sans-serif;
+}
+.item1 a,.item2 a,.item3 a,.item4 a{
+    position: relative;
+    transition: transform 0.1s linear 0s;
+}
+.item1 a::after,.item2 a::after,.item3 a::after,.item4 a::after{
+    content: ' ';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    transition: width 0.1s linear 0s;
+}
+.item1 a:hover,.item2 a:hover,.item3 a:hover,.item4 a:hover{
+    transform: translateY(-2px);
+}
+.item1 a:hover::after,.item2 a:hover::after,.item3 a:hover::after,.item4 a:hover::after{
+    width: 100%;
+}
+
+.title{
+    text-align: center;
+}
+.sub{
+    width: 60%;
+    margin: 0.6rem auto;
+    color: grey;
+    font-family: "Poppins",sans-serif;
+}
+.heading{
+    margin: 0.6rem;
+    font-family: "Poppins",sans-serif;
+}
+.container{
+    width: 80vw;
+    margin: auto;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.4rem;
+}
+.img{
+    height: 10rem;
+    position: relative;
+    overflow: hidden;
+}
+.img img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 0.5;
+}
+
+
+.card{
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+}
+.cap{
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: rgb(220, 220, 220, 1);
+    padding: 0.25rem;
+    font-family: "Poppins", cursive, sans-serif;
+    font-size: 0.75em;
+}
+.cap:hover{
+    background-color: rgb(190, 190, 190);
+    cursor: pointer;
+}
+.capsules{
+    padding: 0.3rem;
+    margin-top: 0.4rem;
+}
+.name{
+    font-family: "Sriracha", cursive, sans-serif;
+    font-size: 1.4em;
+    text-decoration: underline;
+    padding-left: 0.3rem;
+}
+.desc{
+    padding: 0.3rem;
+    padding-top: 0.6rem;
+    color: rgb(105, 104, 104);
+}
+.button{
+    background-color: #00e7ffa3;
+    color: #0000ffb3;
+    border: 2px solid grey;
+    border-radius: 10px;
+    padding: 0.25rem;
+}
+.button:hover{
+    background-color: #00e5ff;
+    color: #0000ff;
+    cursor: pointer;
+}
+.more{
+    display: flex;
+    justify-content: center;
+    margin: 1.2rem 0 0.5rem 0;
+}
+
+@media (max-width:870px) {
+    .cards{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (max-width:650px) {
+    .cards{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
